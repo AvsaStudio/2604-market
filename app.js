@@ -14,4 +14,9 @@ app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("Something went wrong.");
+});
+
 export default app;
